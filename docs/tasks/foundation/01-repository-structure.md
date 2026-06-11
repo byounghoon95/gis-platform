@@ -42,6 +42,7 @@ Create the baseline repository structure and split project tasks by track.
 ## Completion Notes
 
 - Status: done
+- Skills used: implement-task
 - Changed: added backend, frontend, infra, root README, root `.gitignore`, root/track `AGENTS.md`, and task index with per-track task files
-- Verification: file listing and heading search completed locally; this directory is not currently a Git repository, so `git diff` was unavailable
+- Verification: `find . -maxdepth 3 -type f | sort` passed; `rg '^#|^###|TASK-' docs/tasks README.md AGENTS.md backend/AGENTS.md frontend/AGENTS.md infra/AGENTS.md` passed
 - Notes: application scaffolds and Docker Compose are intentionally left for later tasks
