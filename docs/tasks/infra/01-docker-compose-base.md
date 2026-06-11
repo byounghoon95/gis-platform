@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -35,3 +35,11 @@ Run PostgreSQL/PostGIS, backend, and frontend with Docker Compose.
 ## Verification
 
 - `docker compose config`
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added root `compose.yaml`, `.env.example`, PostGIS init SQL, and README local runtime instructions for the base Docker Compose stack.
+- Verification: `docker compose config` passed; config includes `postgres` on published port `5432`, backend placeholder env values, and frontend placeholder env values.
+- Notes: Backend and frontend services intentionally use lightweight placeholders until their application implementation tasks provide real Docker build targets.
