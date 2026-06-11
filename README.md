@@ -22,14 +22,12 @@ The base stack starts:
 
 - `postgres`: PostgreSQL/PostGIS on `localhost:5432`
 - `backend`: Spring Boot API on `localhost:8080`
-- `frontend`: placeholder service with Vite environment variables
+- `frontend`: React/Vite app on `localhost:5173`
 
 Backend endpoints:
 
 - Health check: `http://localhost:8080/api/health`
 - Swagger UI: `http://localhost:8080/swagger-ui.html`
-
-The frontend placeholder is replaced by a real application container in its implementation task.
 
 ## Tasks
 
