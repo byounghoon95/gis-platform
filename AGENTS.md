@@ -57,6 +57,23 @@ For each task:
 
 Use predictable branch names and commit messages once this directory is initialized as a Git repository.
 
+### Worktree Workflow
+
+For new implementation or PR work, use a separate Git worktree outside the repository directory instead of changing branches in the main checkout.
+
+Preferred location pattern:
+
+```text
+../gis-platform-worktrees/<branch-name>
+```
+
+Example:
+
+```sh
+mkdir -p ../gis-platform-worktrees
+git worktree add ../gis-platform-worktrees/feature-infra-docker-compose-base -b feature/infra-docker-compose-base main
+```
+
 Branch names:
 
 ```text
