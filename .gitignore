@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Java / Gradle
+.gradle/
+build/
+out/
+
+# Node
+node_modules/
+dist/
+coverage/
+
+# Docker / local data
+postgres-data/
+data/
