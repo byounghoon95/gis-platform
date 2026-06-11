@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/gis_platform}
+    username: ${SPRING_DATASOURCE_USERNAME:gis_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:gis_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
