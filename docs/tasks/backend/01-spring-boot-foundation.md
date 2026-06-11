@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -44,3 +44,16 @@ Initialize the Java 17 Spring Boot 3 API project and baseline backend runtime.
 
 - Backend test command
 - Backend boot or health endpoint smoke check
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added a Gradle Spring Boot 3 backend foundation with health API, profile-based config, PostgreSQL/PostGIS datasource wiring, Flyway initial migration, common API error response handling, Springdoc Swagger UI, Docker image build, and Compose backend runtime wiring.
+- Verification:
+  - `docker run --rm -v "$PWD/backend":/workspace -w /workspace gradle:8.10.2-jdk17 gradle --no-daemon test` -> passed; 2 tests, 0 failures.
+  - `docker compose up -d --build postgres backend` -> passed; Postgres and backend containers started healthy.
+  - `curl -fsS http://localhost:8080/api/health` -> passed; returned `{"status":"UP",...}`.
+  - `curl -fsSI http://localhost:8080/swagger-ui.html` -> passed; returned `302` to `/swagger-ui/index.html`.
+  - `docker compose exec -T postgres psql -U gis_user -d gis_platform -c "select version, description, success from flyway_schema_history order by installed_rank;"` -> passed; version `1`, description `init schema`, success `t`.
+- Notes: Local host does not have `java` or `gradle` installed, so verification used Dockerized Gradle. Smoke-check containers were stopped with `docker compose down` after verification.
