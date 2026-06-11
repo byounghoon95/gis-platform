@@ -4,7 +4,7 @@ Track-local rules for `frontend/`. Root rules live in the repo-root `AGENTS.md`.
 
 ## Stack
 
-- Language: TypeScript
+- Language: JavaScript
 - Framework: React
 - Bundler / dev server: Vite
 - Server state: TanStack Query

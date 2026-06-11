@@ -33,7 +33,6 @@ GIS 기반 B2B 입지 분석 플랫폼.
 ### Frontend
 
 - React
-- TypeScript
 - Vite
 - TanStack Query
 - Zustand
@@ -413,4 +412,3 @@ README should emphasize:
 - sample API requests
 - test command
 - AI tool usage note
-

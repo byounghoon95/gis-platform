@@ -22,7 +22,7 @@ The base stack starts:
 
 - `postgres`: PostgreSQL/PostGIS on `localhost:5432`
 - `backend`: Spring Boot API on `localhost:8080`
-- `frontend`: placeholder service with Vite environment variables
+- `frontend`: React/Vite app on `localhost:5173`
 
 Backend endpoints:
 
