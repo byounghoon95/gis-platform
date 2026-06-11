@@ -42,7 +42,7 @@ Status values come from `## Status Values` above. Update this column and the mat
 | foundation TASK-01 | ✅ done | none | [01-repository-structure.md](foundation/01-repository-structure.md) |
 | infra TASK-01 | ✅ done | foundation TASK-01 | [01-docker-compose-base.md](infra/01-docker-compose-base.md) |
 | backend TASK-01 | ✅ done | foundation TASK-01, infra TASK-01 | [01-spring-boot-foundation.md](backend/01-spring-boot-foundation.md) |
-| backend TASK-02 | ⬜ todo | backend TASK-01 | [02-auth-jwt-admin.md](backend/02-auth-jwt-admin.md) |
+| backend TASK-02 | ✅ done | backend TASK-01 | [02-auth-jwt-admin.md](backend/02-auth-jwt-admin.md) |
 | backend TASK-03 | ⬜ todo | backend TASK-01 | [03-location-crud.md](backend/03-location-crud.md) |
 | backend TASK-04 | ⬜ todo | backend TASK-03 | [04-gis-data-models.md](backend/04-gis-data-models.md) |
 | backend TASK-05 | ⬜ todo | backend TASK-04 | [05-spatial-analysis-scoring.md](backend/05-spatial-analysis-scoring.md) |

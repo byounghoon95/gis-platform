@@ -29,6 +29,25 @@ Backend endpoints:
 - Health check: `http://localhost:8080/api/health`
 - Swagger UI: `http://localhost:8080/swagger-ui.html`
 
+The frontend placeholder is replaced by a real application container in its implementation task.
+
+## Verification
+
+For repeated backend test runs on machines without local Java/Gradle, keep Gradle dependencies in a Docker volume:
+
+```sh
+docker volume create gis-gradle-cache
+docker run --rm \
+  -v gis-gradle-cache:/home/gradle/.gradle \
+  -v "$PWD/backend":/workspace \
+  -w /workspace \
+  gradle:8.10.2-jdk17 \
+  gradle test
+```
+
+`backend/Dockerfile` also uses a BuildKit cache mount for Gradle dependencies during `docker compose build`.
+The backend Gradle build enables local build and configuration caches for faster repeated checks.
+
 ## Tasks
 
 - [Task index](docs/tasks/README.md)
