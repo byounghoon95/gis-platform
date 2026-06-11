@@ -86,6 +86,33 @@ Examples:
 - `infra(compose): add postgis runtime`
 - `docs(tasks): record repository structure task`
 
+Pull request titles:
+
+- For task-based work, use:
+
+```text
+<type>(<track>-task-<number>): <imperative summary>
+```
+
+Examples:
+
+- `feature(backend-task-01): create spring boot foundation`
+- `feature(frontend-task-03): add dashboard layout`
+- `infra(infra-task-01): add compose base`
+- `docs(foundation-task-01): record verification notes`
+
+- For non-task work, omit the scope:
+
+```text
+<type>: <imperative summary>
+```
+
+Examples:
+
+- `docs: update contribution guide`
+- `fix: correct typo in readme`
+- `chore: update ignore rules`
+
 ## Scope Guardrails
 
 - Keep the MVP focused on candidate location management, map visualization, PostGIS nearby analysis, explainable scoring, CSV upload, and portfolio documentation.
