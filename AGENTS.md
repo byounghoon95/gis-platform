@@ -69,7 +69,6 @@ Allowed `type` values:
 - `fix`
 - `docs`
 - `chore`
-- `infra`
 - `refactor`
 - `test`
 
@@ -83,8 +82,37 @@ Examples:
 
 - `feature(backend): add location crud api`
 - `feature(frontend): add map dashboard`
-- `infra(compose): add postgis runtime`
+- `feature(compose): add postgis runtime`
 - `docs(tasks): record repository structure task`
+
+Pull request titles:
+
+- The `<type>` must always be one of the Git convention types above. Do not use track names such as `backend`, `frontend`, or `infra` as the type.
+
+- For task-based work, use:
+
+```text
+<type>(<track>-task-<number>): <imperative summary>
+```
+
+Examples:
+
+- `feature(backend-task-01): create spring boot foundation`
+- `feature(frontend-task-03): add dashboard layout`
+- `feature(infra-task-01): add compose base`
+- `docs(foundation-task-01): record verification notes`
+
+- For non-task work, omit the scope:
+
+```text
+<type>: <imperative summary>
+```
+
+Examples:
+
+- `docs: update contribution guide`
+- `fix: correct typo in readme`
+- `chore: update ignore rules`
 
 ## Scope Guardrails
 
