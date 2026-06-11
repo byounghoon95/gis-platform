@@ -9,6 +9,23 @@ GIS 기반 B2B 입지 분석 플랫폼입니다. 후보 매장 위치를 지도�
 - `infra/`: Docker Compose, 로컬 실행 환경, 배포/운영 설정
 - `docs/`: 요구사항, 태스크, 포트폴리오 문서
 
+## Local Runtime
+
+Copy the local environment template and start the Docker Compose stack:
+
+```sh
+cp .env.example .env
+docker compose up -d
+```
+
+The base stack starts:
+
+- `postgres`: PostgreSQL/PostGIS on `localhost:5432`
+- `backend`: placeholder service with Spring Boot environment variables
+- `frontend`: placeholder service with Vite environment variables
+
+Backend and frontend placeholders are replaced by real application containers in their implementation tasks.
+
 ## Tasks
 
 - [Task index](docs/tasks/README.md)
