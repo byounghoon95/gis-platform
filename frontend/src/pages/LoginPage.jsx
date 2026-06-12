@@ -11,10 +11,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState('admin@example.com');
   const [password, setPassword] = useState('');
   const setSession = useAuthStore((state) => state.setSession);
-  const session = useAuthStore((state) => ({
-    accessToken: state.accessToken,
-    expiresAt: state.expiresAt,
-  }));
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const expiresAt = useAuthStore((state) => state.expiresAt);
 
   const loginMutation = useMutation({
     mutationFn: loginAdmin,
@@ -24,7 +22,7 @@ export default function LoginPage() {
     },
   });
 
-  if (isSessionValid(session)) {
+  if (isSessionValid({ accessToken, expiresAt })) {
     return <Navigate to="/" replace />;
   }
 
