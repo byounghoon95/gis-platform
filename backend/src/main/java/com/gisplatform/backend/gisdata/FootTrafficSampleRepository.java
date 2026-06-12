@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 public interface FootTrafficSampleRepository extends JpaRepository<FootTrafficSample, Long> {
 
     @Query(value = """
-            SELECT COALESCE(AVG(count), 0)
+            SELECT COALESCE(AVG(count), 0)::double precision
             FROM foot_traffic_samples
             WHERE ST_DWithin(
                 geom,
