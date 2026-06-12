@@ -8,8 +8,8 @@ export class ApiError extends Error {
   }
 }
 
-export async function apiGet(path) {
-  return apiRequest(path);
+export async function apiGet(path, options) {
+  return apiRequest(path, options);
 }
 
 export async function apiPost(path, body) {
