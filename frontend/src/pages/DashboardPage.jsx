@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import { getAdminLocations } from '../api/locations';
 import { useAuthStore } from '../auth/authStore';
+import AnalysisPanel from '../components/AnalysisPanel';
 
 const radiusOptions = [300, 500, 1000];
 const defaultCenter = { lat: 37.5665, lng: 126.978 };
@@ -104,6 +105,7 @@ export default function DashboardPage() {
             onSelect={setSelectedLocationId}
           />
           <DetailPanel
+            accessToken={accessToken}
             pickedCoordinates={pickedCoordinates}
             radius={radius}
             selectedLocation={selectedLocation}
@@ -494,9 +496,7 @@ function MapStatusOverlay({ status }) {
   );
 }
 
-function DetailPanel({ pickedCoordinates, radius, selectedLocation }) {
-  const score = getLocationScore(selectedLocation);
-
+function DetailPanel({ accessToken, pickedCoordinates, radius, selectedLocation }) {
   return (
     <aside className="dashboard-detail flex min-h-[360px] flex-col rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="border-b border-zinc-200 p-4">
@@ -509,37 +509,12 @@ function DetailPanel({ pickedCoordinates, radius, selectedLocation }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-4 overflow-y-auto p-4">
-        {selectedLocation ? (
-          <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
-            <p className="text-sm font-semibold text-zinc-900">
-              {selectedLocation.address}
-            </p>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">
-              {selectedLocation.businessType}
-            </p>
-          </div>
-        ) : (
-          <StateCard
-            title="Select a candidate location"
-            tone="empty"
-            body="Marker clicks and list selections open details here."
-          />
-        )}
-
-        <dl className="grid grid-cols-2 gap-3 text-sm">
-          <Metric label="Total score" value={formatScore(score)} />
-          <Metric
-            label="Last analyzed"
-            value={formatDate(
-              selectedLocation?.lastAnalyzedAt ?? selectedLocation?.calculatedAt,
-            )}
-          />
-          <Metric
-            label="Latitude"
-            value={formatCoordinate(selectedLocation?.latitude)}
-          />
-          <Metric label="Radius" value={`${radius}m`} />
-        </dl>
+        <AnalysisPanel
+          accessToken={accessToken}
+          location={selectedLocation}
+          radius={radius}
+          showDetailLink
+        />
 
         <div className="rounded-md border border-zinc-200 p-4">
           <p className="text-sm font-semibold text-zinc-900">
@@ -580,17 +555,6 @@ function StateCard({ title, body, tone }) {
     <div className={`rounded-md border p-3 ${toneClass}`}>
       <p className="text-sm font-semibold">{title}</p>
       <p className="mt-1 text-sm leading-5">{body}</p>
-    </div>
-  );
-}
-
-function Metric({ label, value }) {
-  return (
-    <div className="rounded-md border border-zinc-200 bg-zinc-50 p-3">
-      <dt className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-        {label}
-      </dt>
-      <dd className="mt-2 font-semibold text-zinc-950">{value}</dd>
     </div>
   );
 }
@@ -717,16 +681,6 @@ function formatCoordinate(value) {
   const number = Number(value);
 
   return Number.isFinite(number) ? number.toFixed(6) : '';
-}
-
-function formatDate(value) {
-  if (!value) {
-    return '--';
-  }
-
-  const date = new Date(value);
-
-  return Number.isNaN(date.getTime()) ? '--' : date.toLocaleString();
 }
 
 function roundCoordinate(value) {
