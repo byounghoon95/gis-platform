@@ -19,3 +19,11 @@ export function getAdminLocations(accessToken, filters = {}) {
     },
   });
 }
+
+export function getAdminLocation(locationId, accessToken) {
+  return apiGet(`/api/admin/locations/${locationId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+}

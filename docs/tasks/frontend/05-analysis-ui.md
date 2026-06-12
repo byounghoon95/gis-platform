@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -45,3 +45,11 @@ Show selected location summary, score, chart, explanation, and nearby evidence.
 
 - Frontend lint/test/build commands as configured
 - Analysis flow smoke check
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added authenticated analysis API helpers, reusable analysis panel with score badge, analyze action, sub-score bars, explanation, nearby counts, and facilities/competitors/transit evidence tables; wired the panel into the dashboard; added direct `/locations/:id` detail page with radius-driven table refresh.
+- Verification: `npm.cmd run lint` passed; `npm.cmd test` passed with 3 files and 5 tests; `npm.cmd run build` passed. `npm run ...` was not usable directly in PowerShell because local execution policy blocks `npm.ps1`, so `npm.cmd` was used. Browser smoke check was attempted, and Vite starts in foreground on `http://localhost:5173/`, but this tool session could not keep the dev server alive as a background process long enough for the in-app browser to connect.
+- Notes: CSV upload UI and backend scoring logic were not changed.

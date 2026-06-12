@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import ProtectedRoute from './auth/ProtectedRoute';
 import DashboardPage from './pages/DashboardPage';
+import LocationDetailPage from './pages/LocationDetailPage';
 import LoginPage from './pages/LoginPage';
 
 export default function App() {
@@ -13,6 +14,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <DashboardPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/locations/:id"
+        element={
+          <ProtectedRoute>
+            <LocationDetailPage />
           </ProtectedRoute>
         }
       />

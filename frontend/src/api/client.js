@@ -12,13 +12,15 @@ export async function apiGet(path, options) {
   return apiRequest(path, options);
 }
 
-export async function apiPost(path, body) {
+export async function apiPost(path, body, options = {}) {
   return apiRequest(path, {
+    ...options,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      ...options.headers,
     },
-    body: JSON.stringify(body),
+    body: body === undefined ? undefined : JSON.stringify(body),
   });
 }
 
