@@ -14,3 +14,32 @@ body {
   margin: 0;
   min-width: 320px;
 }
+
+.dashboard-filter {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.dashboard-workspace {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 768px) {
+  .dashboard-filter {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-header {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dashboard-workspace {
+    grid-template-columns:
+      minmax(240px, 290px)
+      minmax(0, 1fr)
+      minmax(280px, 340px);
+  }
+}
