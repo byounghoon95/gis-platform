@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -35,3 +35,12 @@ Allow admin login and protect authenticated routes.
 
 - Frontend lint/test/build commands as configured
 - Login flow smoke check
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added `/login`, admin login API client, local token/session storage with Zustand, protected dashboard routing, login error display, sign-out action, README login notes, and focused auth/client tests.
+- Verification: `npm run lint` passed; `npm test` passed with 5 tests; `npm run build` passed with Vite reporting 34.66s build time.
+- Login flow smoke check: not rerun before PR because no backend containers were running and `curl -fsS http://localhost:8080/api/health` could not connect.
+- Notes: Signup and user management were not added.
