@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -40,3 +40,11 @@ Store facilities, competitors, transit stops, and foot traffic samples for analy
 
 - Backend test command
 - Repository/query smoke checks where available
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added GIS data model migration, JPA entities, repositories, and native PostGIS radius/aggregate queries for facilities, competitors, transit stops, and foot traffic samples.
+- Verification: `gradle.bat test --no-daemon` passed; app boot smoke check on `localhost:8081` passed with Flyway applying V4 and `/api/health` returning 200; PostGIS SQL smoke check passed for geometry triggers, radius counts, business/type filters, and foot traffic average inside a rolled-back transaction.
+- Notes: CSV upload endpoints and scoring formula were intentionally left for later tasks.
