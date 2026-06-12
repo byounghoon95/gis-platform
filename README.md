@@ -27,9 +27,16 @@ The base stack starts:
 Backend endpoints:
 
 - Health check: `http://localhost:8080/api/health`
+- Login: `http://localhost:8080/api/auth/login`
 - Swagger UI: `http://localhost:8080/swagger-ui.html`
 
-The frontend placeholder is replaced by a real application container in its implementation task.
+Frontend routes:
+
+- Dashboard: `http://localhost:5173/`
+- Login: `http://localhost:5173/login`
+
+Local seeded admin credentials default to `admin@example.com` / `admin1234`.
+
 
 ## Verification
 

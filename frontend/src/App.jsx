@@ -2,8 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { NavLink, Route, Routes } from 'react-router-dom';
 
 import { getHealth } from './api/health';
+import ProtectedRoute from './auth/ProtectedRoute';
+import { useAuthStore } from './auth/authStore';
+import LoginPage from './pages/LoginPage';
 
 function DashboardPage() {
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
   const healthQuery = useQuery({
     queryKey: ['health'],
     queryFn: getHealth,
@@ -34,8 +39,29 @@ function DashboardPage() {
           >
             Dashboard
           </NavLink>
+          <button
+            className="rounded-md px-3 py-2 text-slate-700 hover:bg-slate-100"
+            type="button"
+            onClick={logout}
+          >
+            Sign out
+          </button>
         </nav>
       </header>
+
+      <section className="rounded-lg border border-slate-200 bg-white px-5 py-4 shadow-sm">
+        <p className="text-sm text-slate-600">
+          Signed in as{' '}
+          <span className="font-semibold text-slate-950">
+            {user?.name ?? user?.email}
+          </span>
+          {user?.role ? (
+            <span className="ml-2 rounded-full bg-sky-100 px-2 py-1 text-xs font-semibold text-sky-800">
+              {user.role}
+            </span>
+          ) : null}
+        </p>
+      </section>
 
       <section className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
@@ -120,7 +146,15 @@ function HealthStatus({
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<DashboardPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
