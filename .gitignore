@@ -16,6 +16,7 @@
 build/
 out/
 target/
+.tools/
 
 # Node
 node_modules/
@@ -25,3 +26,4 @@ coverage/
 # Docker / local data
 postgres-data/
 data/
+backend/.pgdata/

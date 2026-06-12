@@ -4,12 +4,10 @@ import { isSessionValid, useAuthStore } from './authStore';
 
 export default function ProtectedRoute({ children }) {
   const location = useLocation();
-  const session = useAuthStore((state) => ({
-    accessToken: state.accessToken,
-    expiresAt: state.expiresAt,
-  }));
+  const accessToken = useAuthStore((state) => state.accessToken);
+  const expiresAt = useAuthStore((state) => state.expiresAt);
 
-  if (!isSessionValid(session)) {
+  if (!isSessionValid({ accessToken, expiresAt })) {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
