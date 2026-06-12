@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -46,3 +46,11 @@ Calculate nearby data and explainable location scores for selected candidate loc
 - Backend test command
 - Focused scoring unit tests
 - API smoke check for nearby and analysis endpoints
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added `location_scores` persistence, nearby-data API, analysis command API, latest score API, fixed-weight score calculation, score normalization, concrete explanation text, and focused scoring tests.
+- Verification: `gradle.bat test --no-daemon` passed; app boot smoke check on `localhost:8082` passed with Flyway applying V5 and `/api/health` returning 200; API smoke check passed for `GET /api/locations/{locationId}/nearby?radius=500`, `POST /api/locations/{locationId}/analysis?radius=500`, and `GET /api/locations/{locationId}/score` using temporary PostGIS sample data that was cleaned up afterward.
+- Notes: Scoring weights are fixed per spec. Dynamic tuning and machine learning were not added.
