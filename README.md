@@ -37,6 +37,17 @@ Frontend routes:
 
 Local seeded admin credentials default to `admin@example.com` / `admin1234`.
 
+## Demo Data
+
+Small synthetic CSV samples for Gangnam-gu, Seoul live in `infra/demo-data/`.
+After the stack is running, import them with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File infra/demo-data/import-demo-data.ps1
+```
+
+See [docs/demo-data.md](docs/demo-data.md) for the full local demo preparation flow.
+
 
 ## Verification
 
