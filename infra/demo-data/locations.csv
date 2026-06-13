@@ -1,0 +1,4 @@
+name,business_type,address,latitude,longitude,rent_price,memo
+Gangnam Station Coffee,coffee,12 Teheran-ro 4-gil Gangnam-gu Seoul,37.497942,127.027621,6200000,High-footfall coffee candidate near Gangnam Station.
+Yeoksam Lunch Spot,restaurant,25 Teheran-ro 20-gil Gangnam-gu Seoul,37.500824,127.036744,5400000,Office lunch demand candidate near Yeoksam Station.
+Seolleung Fitness Studio,fitness,10 Seolleung-ro 86-gil Gangnam-gu Seoul,37.504487,127.049053,4800000,After-work demand candidate near Seolleung Station.

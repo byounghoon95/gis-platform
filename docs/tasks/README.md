@@ -55,7 +55,7 @@ Status values come from `## Status Values` above. Update this column and the mat
 | frontend TASK-05 | ✅ done | frontend TASK-04, backend TASK-05 | [05-analysis-ui.md](frontend/05-analysis-ui.md) |
 | frontend TASK-06 | ✅ `done` | frontend TASK-02, backend TASK-06 | [06-admin-upload-ui.md](frontend/06-admin-upload-ui.md) |
 | frontend TASK-07 | ✅ `done` | frontend TASK-05, frontend TASK-06 | [07-frontend-smoke-tests.md](frontend/07-frontend-smoke-tests.md) |
-| infra TASK-02 | ⬜ todo | backend TASK-06, frontend TASK-06 | [02-sample-data-demo.md](infra/02-sample-data-demo.md) |
+| infra TASK-02 | ✅ `done` | backend TASK-06, frontend TASK-06 | [02-sample-data-demo.md](infra/02-sample-data-demo.md) |
 | portfolio TASK-01 | ⬜ todo | backend TASK-07, frontend TASK-07, infra TASK-02 | [01-final-readme-portfolio-docs.md](portfolio/01-final-readme-portfolio-docs.md) |
 
 ## Parallel Work
