@@ -64,6 +64,14 @@ export default function DashboardPage() {
             >
               Dashboard
             </NavLink>
+            {user?.role === 'ADMIN' ? (
+              <NavLink
+                to="/admin/uploads"
+                className="rounded-md px-3 py-2 text-zinc-700 hover:bg-zinc-100"
+              >
+                Admin uploads
+              </NavLink>
+            ) : null}
             <span className="rounded-md border border-zinc-200 px-3 py-2 text-zinc-600">
               {user?.name ?? user?.email ?? 'Signed in'}
             </span>

@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -39,3 +39,15 @@ Allow admins to upload GIS datasets from CSV and review validation results.
 
 - Frontend lint/test/build commands as configured
 - Upload UI smoke check
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task, browser:control-in-app-browser
+- Changed: Added `/admin/uploads`, admin-only route blocking, CSV dataset upload client, upload result summary, row-level validation table, and dashboard navigation for admins.
+- Verification:
+  - `npm.cmd run lint` - passed.
+  - `npm.cmd test` - passed, 4 test files and 8 tests.
+  - `npm.cmd run build` - passed.
+  - Built-app smoke check - unauthenticated `/admin/uploads` redirects to `/login`; seeded admin session renders dataset selector, CSV file input, upload button, and import summary; seeded non-admin session is blocked.
+- Notes: Backend upload endpoints already existed, so this task only connected the frontend multipart request and validation-result display.
