@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import ProtectedRoute from './auth/ProtectedRoute';
+import AdminUploadPage from './pages/AdminUploadPage';
 import DashboardPage from './pages/DashboardPage';
 import LocationDetailPage from './pages/LocationDetailPage';
 import LoginPage from './pages/LoginPage';
@@ -22,6 +23,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <LocationDetailPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/uploads"
+        element={
+          <ProtectedRoute requiredRole="ADMIN">
+            <AdminUploadPage />
           </ProtectedRoute>
         }
       />

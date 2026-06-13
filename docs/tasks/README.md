@@ -53,7 +53,7 @@ Status values come from `## Status Values` above. Update this column and the mat
 | frontend TASK-03 | ✅ done | frontend TASK-01 | [03-dashboard-layout.md](frontend/03-dashboard-layout.md) |
 | frontend TASK-04 | ✅ done | frontend TASK-03, backend TASK-03 | [04-map-ui.md](frontend/04-map-ui.md) |
 | frontend TASK-05 | ✅ done | frontend TASK-04, backend TASK-05 | [05-analysis-ui.md](frontend/05-analysis-ui.md) |
-| frontend TASK-06 | ⬜ todo | frontend TASK-02, backend TASK-06 | [06-admin-upload-ui.md](frontend/06-admin-upload-ui.md) |
+| frontend TASK-06 | ✅ `done` | frontend TASK-02, backend TASK-06 | [06-admin-upload-ui.md](frontend/06-admin-upload-ui.md) |
 | frontend TASK-07 | ⬜ todo | frontend TASK-05, frontend TASK-06 | [07-frontend-smoke-tests.md](frontend/07-frontend-smoke-tests.md) |
 | infra TASK-02 | ⬜ todo | backend TASK-06, frontend TASK-06 | [02-sample-data-demo.md](infra/02-sample-data-demo.md) |
 | portfolio TASK-01 | ⬜ todo | backend TASK-07, frontend TASK-07, infra TASK-02 | [01-final-readme-portfolio-docs.md](portfolio/01-final-readme-portfolio-docs.md) |
