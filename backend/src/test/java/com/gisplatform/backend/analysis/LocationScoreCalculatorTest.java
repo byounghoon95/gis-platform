@@ -62,6 +62,50 @@ class LocationScoreCalculatorTest {
         assertThat(score.rentScore()).isEqualByComparingTo("50.00");
     }
 
+    @Test
+    void maximumInputsAreClampedToOneHundred() {
+        NearbySummary nearby = new NearbySummary(
+                1_000,
+                10,
+                100,
+                100,
+                0,
+                1_000,
+                500_000
+        );
+
+        ScoreBreakdown score = calculator.calculate(nearby, nearby.rentPrice());
+
+        assertThat(score.footTrafficScore()).isEqualByComparingTo("100.00");
+        assertThat(score.transportScore()).isEqualByComparingTo("100.00");
+        assertThat(score.demandScore()).isEqualByComparingTo("100.00");
+        assertThat(score.competitionScore()).isEqualByComparingTo("100.00");
+        assertThat(score.rentScore()).isEqualByComparingTo("100.00");
+        assertThat(score.totalScore()).isEqualByComparingTo("100.00");
+    }
+
+    @Test
+    void minimumInputsAreClampedToZeroWhereApplicable() {
+        NearbySummary nearby = new NearbySummary(
+                0,
+                0,
+                0,
+                0,
+                100,
+                0,
+                10_000_000
+        );
+
+        ScoreBreakdown score = calculator.calculate(nearby, nearby.rentPrice());
+
+        assertThat(score.footTrafficScore()).isEqualByComparingTo("0.00");
+        assertThat(score.transportScore()).isEqualByComparingTo("0.00");
+        assertThat(score.demandScore()).isEqualByComparingTo("0.00");
+        assertThat(score.competitionScore()).isEqualByComparingTo("0.00");
+        assertThat(score.rentScore()).isEqualByComparingTo("0.00");
+        assertThat(score.totalScore()).isEqualByComparingTo("0.00");
+    }
+
     private static void assertBetweenZeroAndOneHundred(BigDecimal value) {
         assertThat(value).isBetween(BigDecimal.ZERO, BigDecimal.valueOf(100));
     }

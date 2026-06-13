@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -32,3 +32,14 @@ Catch major UI failures with focused frontend smoke tests.
 
 - Frontend test command
 - Frontend build command
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added route smoke tests for login, authenticated dashboard rendering, and the Google Maps missing-key state.
+- Verification:
+  - `npm.cmd test` passed: 5 test files, 11 tests. React Router emitted expected server-render `useLayoutEffect` warnings from `renderToString`.
+  - `npm.cmd run lint` passed.
+  - `npm.cmd run build` passed.
+- Notes: Smoke tests use React server rendering with a scoped auth-store mock to avoid adding browser-testing dependencies or testing Google Maps internals.
