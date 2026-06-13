@@ -31,6 +31,20 @@ export default function LoginPage() {
     loginMutation.mutate({ email, password });
   }
 
+  function handleDevSession() {
+    setSession({
+      accessToken: 'local-dev-token',
+      tokenType: 'Bearer',
+      expiresInSeconds: 60 * 60,
+      user: {
+        email: 'admin@example.com',
+        name: 'Local Admin',
+        role: 'ADMIN',
+      },
+    });
+    navigate(location.state?.from?.pathname ?? '/', { replace: true });
+  }
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-6 py-10">
       <section className="w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -81,6 +95,16 @@ export default function LoginPage() {
           >
             {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
           </button>
+
+          {import.meta.env.DEV ? (
+            <button
+              className="w-full rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-50"
+              type="button"
+              onClick={handleDevSession}
+            >
+              Continue with local dev session
+            </button>
+          ) : null}
         </form>
       </section>
     </main>
