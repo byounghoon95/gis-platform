@@ -112,6 +112,20 @@ class CsvUploadServiceTest {
     }
 
     @Test
+    void missingRequiredColumnsAreReportedAndDoNotInsert() {
+        CsvUploadResponse response = service.uploadFacilities(csv("""
+                name,address,latitude
+                Library,Seoul,37.4979
+                """));
+
+        assertThat(response.totalRows()).isEqualTo(1);
+        assertThat(response.insertedRows()).isZero();
+        assertThat(response.errors()).extracting(CsvRowError::field)
+                .contains("category", "longitude");
+        verify(facilityRepository, never()).saveAll(anyList());
+    }
+
+    @Test
     void validFootTrafficCsvInsertsRows() {
         CsvUploadResponse response = service.uploadFootTraffic(csv("""
                 base_date,hour,latitude,longitude,count
