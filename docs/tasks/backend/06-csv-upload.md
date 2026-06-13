@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Goal
 
@@ -47,3 +47,11 @@ Allow admins to upload GIS datasets from CSV.
 - Backend test command
 - CSV parser and validation unit tests
 - Upload API smoke check
+
+## Completion Notes
+
+- Status: done
+- Skills used: implement-task
+- Changed: Added admin CSV upload endpoints for facilities, competitors, transit stops, and foot traffic; added CSV parsing, row DTO mapping, row-level validation results, and repository-backed inserts for fully valid files.
+- Verification: `gradle test` passed using the repo-local Gradle 8.10.2 and JDK 17 toolchain; coverage includes CSV parser tests, validation/service tests, and multipart upload controller smoke tests.
+- Notes: Upload APIs live under `/api/admin/uploads/**`, so existing `/api/admin/**` security restricts them to admin users. Invalid CSV responses return `400` with row-level errors and do not insert partial data.
